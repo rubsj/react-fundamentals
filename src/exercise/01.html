@@ -7,6 +7,7 @@
 <!--   📜 https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Modules -->
 <!--   📜 https://github.com/mdn/js-examples/tree/master/modules -->
 
+
 <!-- These next instructions are to be written in JavaScript in the <script> tag -->
 <!-- 🐨 Create a div -->
 <!--   💰 document.createElement('div') -->
@@ -17,3 +18,74 @@
 <!-- 🐨 Append the div to the root div using `append` -->
 <!--   💰 document.getElementById('root') -->
 <!--   📜 https://developer.mozilla.org/en-US/docs/Web/API/ParentNode/append -->
+<html>
+
+    <head>
+        <style>
+            .container {
+                border: 1px solid red;
+                margin: 1rem;
+                padding: 1rem;
+            }
+        </style>
+    </head>
+
+    <body>
+        <div id="root">
+            <script type="module">
+                const rootDiv = document.getElementById('root');
+                const contentDiv = document.createElement('div');
+                contentDiv.textContent = 'Hello World!!';
+                rootDiv.append(contentDiv);
+            </script>
+        </div>
+    </body>
+
+</html>
+
+<html>
+
+    <body>
+        <script type="module">
+            const root1Div = document.createElement('div');
+            root1Div.setAttribute('id', 'root');
+            document.body.append(root1Div);
+            const helloDiv = document.createElement('div');
+            helloDiv.textContent = 'Hello Div for final';
+            helloDiv.className = 'container'
+            root1Div.append(helloDiv);
+        </script>
+    </body>
+
+</html>
+<html>
+
+    <body>
+        <div>
+            <h3>What I learnt today</h3>
+            <p>1. javascript modules can have .mjs extension as well and infact thats the recommended extention</p>
+            <p> 2. unbundled files can be deployed as well , they have longer first time load but can be faster for
+                subsequent visit,
+                however this could be beneficial for small applications only</p>
+            <p>3. strict type javascript code throws errors for previously silent errors
+            <ul>
+                <li>like setting value to undefined </li>
+                <li>not declaring variable with type</li>
+                <li>performing operation on NAN</li>
+                <li>strict type can enhance performance by making the variable types deterministic </li>
+            </ul>
+            </p>
+            <p>4 refreshed memory for creating element using document.createElement</p>
+            <p>5. refreshed memory for adding attribute , adding class Names</p>
+            <p>6. learnt script type can be module for loading a module type script and that its defer by default</p>
+            <p>7 defer type will execute script only after html parsing is done</p>
+            <p>8. script can be async type as well , for async type script is loaded in parallel , howevr can be
+                executed before html parsing is complete</p>
+            <p>9. module import can only be done for relative path full file name needs to be provided including
+                extentiopn .js </p>
+            <p>10. modules are strict mode by default</p>
+            <p>11. modules are imported into the scope of scipt</p>
+        </div>
+    </body>
+
+</html>
