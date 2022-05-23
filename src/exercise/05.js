@@ -14,9 +14,30 @@ import '../box-styles.css'
 // 🐨 also use the style prop to make the font italic
 // 💰 Here are available style attributes: backgroundColor, fontStyle
 
-const smallBox = <div>small lightblue box</div>
-const mediumBox = <div>medium pink box</div>
-const largeBox = <div>large orange box</div>
+const smallBox = (
+  <div
+    className="box box--small"
+    style={{backgroundColor: 'lightblue', fontStyle: 'italic'}}
+  >
+    small lightblue box
+  </div>
+)
+const mediumBox = (
+  <div
+    className="box box--medium"
+    style={{backgroundColor: 'pink', fontStyle: 'italic'}}
+  >
+    medium pink box
+  </div>
+)
+const largeBox = (
+  <div
+    className="box box--large"
+    style={{backgroundColor: 'orange', fontStyle: 'italic'}}
+  >
+    large orange box
+  </div>
+)
 
 function App() {
   return (
@@ -28,4 +49,53 @@ function App() {
   )
 }
 
-export default App
+//extra credit 1
+const Box = ({children, className='', style}) => {
+  const classes = `box ${className}`
+  const styles = {...style, fontStyle: 'italic'}
+  return (
+    <div className={classes} style={styles}>
+      {children}
+    </div>
+  )
+}
+
+export const App1 = () => {
+  return (
+    <div>
+      <p>Extra credit 1</p>
+      <Box className='box--small' style={{backgroundColor: 'lightblue'}}>small lightblue box</Box>
+      <Box className='box--medium' style={{backgroundColor: 'pink'}}>medium pink box</Box>
+      <Box className='box--large' style={{backgroundColor: 'orange'}}>large orange box</Box>
+      <Box>sizeless box</Box>
+    </div>
+  )
+}
+
+//extra credit 2
+const Box2 = ({children, className='', style , size}) => {
+  const sizeClass = size? `box--${size}` : '';
+  const classes = `box ${className} ${sizeClass}`
+  console.log(classes);
+  const styles = {...style, fontStyle: 'italic'}
+  return (
+    <div className={classes} style={styles}>
+      {children}
+    </div>
+  )
+}
+
+export const App2 = () => {
+  return (
+    <div>
+      <p>Extra credit 2</p>
+      <Box2 size='small' style={{backgroundColor: 'lightblue'}}>small lightblue box</Box2>
+      <Box2 size='medium' style={{backgroundColor: 'pink'}}>medium pink box</Box2>
+      <Box2 className='box--large' style={{backgroundColor: 'orange'}}>large orange box</Box2>
+      <Box2>sizeless box</Box2>
+    </div>
+  )
+}
+
+
+export default App2
